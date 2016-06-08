@@ -1,0 +1,25 @@
+
+<div>
+    <h2><span>{{vm.mensaje.titulo}}</span></h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="ecoforo2App.mensaje.contenido">Contenido</span></dt>
+        <dd>
+            <span>{{vm.mensaje.contenido}}</span>
+        </dd>
+        <dt><span translate="ecoforo2App.mensaje.emisor">Emisor</span></dt>
+        <dd>
+            {{vm.mensaje.emisor.firstName}}
+        </dd>
+        <dt><span translate="ecoforo2App.mensaje.receptor">Receptor</span></dt>
+        <dd>
+            {{vm.mensaje.receptor.firstName}}
+        </dd>
+    </dl>
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

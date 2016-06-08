@@ -1,0 +1,32 @@
+
+<div>
+    <h2><span translate="ecoforo2App.comentario.detail.title">Comentario</span> {{vm.comentario.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="ecoforo2App.comentario.comentario">Comentario</span></dt>
+        <dd>
+            <span>{{vm.comentario.comentario}}</span>
+        </dd>
+        <dt><span translate="ecoforo2App.comentario.fecha">Fecha</span></dt>
+        <dd>
+            <span>{{vm.comentario.fecha | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="ecoforo2App.comentario.receta">Receta</span></dt>
+        <dd>
+            <span ng-repeat="receta in vm.comentario.recetas">
+                <a ui-sref="receta-detail({id: {{receta.id}}})">{{receta.nombre}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span translate="ecoforo2App.comentario.user">User</span></dt>
+        <dd>
+            {{vm.comentario.user.firstName}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
