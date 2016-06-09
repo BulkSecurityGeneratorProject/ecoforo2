@@ -15,7 +15,7 @@ import java.util.List;
 public interface MensajeRepository extends JpaRepository<Mensaje,Long> {
 
     @Query("select mensaje from Mensaje mensaje where mensaje.emisor.login = ?#{principal.username}")
-    List<Mensaje> findByEmisorIsCurrentUser();
+    Page<Mensaje> findByEmisorIsCurrentUser(Pageable pageable);
 
     @Query("select mensaje from Mensaje mensaje where mensaje.receptor.login = ?#{principal.username}")
     Page<Mensaje> findByReceptorIsCurrentUser(Pageable pageable);

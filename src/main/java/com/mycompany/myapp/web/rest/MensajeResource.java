@@ -121,6 +121,18 @@ public class MensajeResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/mensajesEnviados",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Mensaje>> getMensajesEnviados(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Mensajes");
+        Page<Mensaje> enviados = mensajeRepository.findByEmisorIsCurrentUser(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(enviados, "/api/mensajes");
+        return new ResponseEntity<>(enviados.getContent(), headers, HttpStatus.OK);
+    }
+
     /**
      * GET  /mensajes/:id : get the "id" mensaje.
      *

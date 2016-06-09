@@ -21,6 +21,11 @@
                     return data;
                 }
             },
+           'getMensajesEnviados':{
+             method :'GET',
+             isArray:true,
+             url:'api/mensajesEnviados'
+           },
             'update': {
                 method: 'PUT',
                 transformRequest: function (data) {
